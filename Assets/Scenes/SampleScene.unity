@@ -192,6 +192,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 0c34580c07b458a48968ea814497df34, type: 2}
     - target: {fileID: 5866666021909216657, guid: 10e89199d9fe6824f986da54625276ef, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+        'mixamorig:LeftHandThumb3'\n\tTransform 'mixamorig:RightArm'\n\tTransform
+        'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightHandIndex3'\n\tand
+        more ...\n\tFrom animation clip 'Punch'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 10e89199d9fe6824f986da54625276ef, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
@@ -202,6 +212,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 10e89199d9fe6824f986da54625276ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 982054422}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 10e89199d9fe6824f986da54625276ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 982054424}
   m_SourcePrefab: {fileID: 100100000, guid: 10e89199d9fe6824f986da54625276ef, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -308,6 +321,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -355,8 +369,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 150
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -382,13 +396,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13123722, y: -0, z: -0, w: 0.99135107}
-  m_LocalPosition: {x: 9.4, y: 51.5, z: -134.20001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.6875334, y: 25, z: -75.43947}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 15.082, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf64ea422982094d9ac120b86911c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 982054423}
 --- !u!1 &982054419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 10e89199d9fe6824f986da54625276ef, type: 3}
@@ -414,8 +441,47 @@ MonoBehaviour:
   animator: {fileID: 982054420}
   parameterNameX: x
   parameterNameY: y
-  Speed: 1.5
-  lerpSpeed: 5
+  lerpSpeed: 5.4
+--- !u!4 &982054423 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 10e89199d9fe6824f986da54625276ef, type: 3}
+  m_PrefabInstance: {fileID: 23478547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &982054424
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982054419}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &996215635
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ public class BlendTreeParameterPrinter : MonoBehaviour
     public Animator animator;
     public string parameterNameX;
     public string parameterNameY;
-    public float Speed = 0.6f;
     public float lerpSpeed = 7f;
 
     void Update()
@@ -16,8 +15,8 @@ public class BlendTreeParameterPrinter : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
-        targetValueX += inputX * 1f;
-        targetValueY += inputY * 1f;
+        targetValueX += inputX * 1.2f;
+        targetValueY += inputY * 1.2f;
 
         targetValueX = Mathf.Abs(inputX) < 0.01f ? 0 : targetValueX;
         targetValueY = Mathf.Abs(inputY) < 0.01f ? 0 : targetValueY;
@@ -27,11 +26,19 @@ public class BlendTreeParameterPrinter : MonoBehaviour
 
         float newValueX = Mathf.Lerp(currentValueX, targetValueX, Time.deltaTime * lerpSpeed);
         float newValueY = Mathf.Lerp(currentValueY, targetValueY, Time.deltaTime * lerpSpeed);
-
+  
         animator.SetFloat(parameterNameY, newValueY);
         animator.SetFloat(parameterNameX, newValueX);
 
-
+        if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            animator.SetTrigger("Punch");
+        }
+        
+         if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            animator.SetTrigger("Kick");
+        }
 
         //   if (Input.GetKey(KeyCode.W))
         //   {
