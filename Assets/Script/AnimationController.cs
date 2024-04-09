@@ -30,7 +30,7 @@ public class BlendTreeParameterPrinter : MonoBehaviour
         animator.SetFloat(parameterNameY, newValueY);
         animator.SetFloat(parameterNameX, newValueX);
 
-        if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.LeftShift)) 
+        if( Input.GetKeyDown(KeyCode.LeftShift)) 
         {
             animator.SetTrigger("Punch");
         }
@@ -38,6 +38,11 @@ public class BlendTreeParameterPrinter : MonoBehaviour
          if(Input.GetKeyDown(KeyCode.LeftControl))
         {
             animator.SetTrigger("Kick");
+        }
+
+         if(Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("Jump");
         }
 
         //   if (Input.GetKey(KeyCode.W))
