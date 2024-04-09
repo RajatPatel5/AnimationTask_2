@@ -439,9 +439,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 982054420}
-  parameterNameX: x
-  parameterNameY: y
-  lerpSpeed: 5.4
+  parameterName_X: x
+  parameterName_Y: y
+  speed: 1.2
+  lerp_Speed: 5.5
 --- !u!4 &982054423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 10e89199d9fe6824f986da54625276ef, type: 3}

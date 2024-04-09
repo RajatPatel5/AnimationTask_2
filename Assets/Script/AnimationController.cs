@@ -1,34 +1,36 @@
+using UnityEditor;
 using UnityEngine;
 
 public class BlendTreeParameterPrinter : MonoBehaviour
 {
     public Animator animator;
-    public string parameterNameX;
-    public string parameterNameY;
-    public float lerpSpeed = 7f;
-
+    public string parameterName_X;
+    public string parameterName_Y;
+    public float speed;
+    public float lerp_Speed;
+    
     void Update()
     {
-        float targetValueX = animator.GetFloat(parameterNameX);
-        float targetValueY = animator.GetFloat(parameterNameY);
+        float targetValue_X = animator.GetFloat(parameterName_X);
+        float targetValue_Y = animator.GetFloat(parameterName_Y);
 
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+        float input_X = Input.GetAxis("Horizontal");
+        float input_Y = Input.GetAxis("Vertical");
 
-        targetValueX += inputX * 1.2f;
-        targetValueY += inputY * 1.2f;
+        targetValue_X += input_X * speed;
+        targetValue_Y += input_Y * speed;
 
-        targetValueX = Mathf.Abs(inputX) < 0.01f ? 0 : targetValueX;
-        targetValueY = Mathf.Abs(inputY) < 0.01f ? 0 : targetValueY;
+        targetValue_X = Mathf.Abs(input_X) < 0.01f ? 0 : targetValue_X;
+        targetValue_Y = Mathf.Abs(input_Y) < 0.01f ? 0 : targetValue_Y;
 
-        float currentValueX = animator.GetFloat(parameterNameX);
-        float currentValueY = animator.GetFloat(parameterNameY);
+        float currentValue_X = animator.GetFloat(parameterName_X);
+        float currentValue_Y = animator.GetFloat(parameterName_Y);
 
-        float newValueX = Mathf.Lerp(currentValueX, targetValueX, Time.deltaTime * lerpSpeed);
-        float newValueY = Mathf.Lerp(currentValueY, targetValueY, Time.deltaTime * lerpSpeed);
+        float newValueX = Mathf.Lerp(currentValue_X, targetValue_X, Time.deltaTime * lerp_Speed);
+        float newValueY = Mathf.Lerp(currentValue_Y, targetValue_Y, Time.deltaTime * lerp_Speed);
   
-        animator.SetFloat(parameterNameY, newValueY);
-        animator.SetFloat(parameterNameX, newValueX);
+        animator.SetFloat(parameterName_Y, newValueY);
+        animator.SetFloat(parameterName_X, newValueX);
 
         if( Input.GetKeyDown(KeyCode.LeftShift)) 
         {
