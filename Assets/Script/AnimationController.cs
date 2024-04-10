@@ -41,7 +41,7 @@ public class BlendTreeParameterPrinter : MonoBehaviour
             targetValue_Y = temp;
         }
 
-
+        
         float currentValue_X = animator.GetFloat(parameterName_X);
         float currentValue_Y = animator.GetFloat(parameterName_Y);
 
